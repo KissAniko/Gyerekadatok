@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gyerek adatok</title>
+</head>
+
+<body>
+  
+<h1>Gyerek adatok</h1>
+
+<form id="gyerekForm">
+    
+   <label for="nev">Gyerek neve:</label>
+   <input type="text" id="nev" required>
+   <label for="kor">Gyerek kora:</label>
+   <input type="number" id="kor" required>
+   <button type="submit">Adatok hozzáadása</button>
+  
+ </form>
+
+<table id="adatTabla">    
+    <thead>
+        <tr>
+            <th>Gyerek neve</th>
+            <th>Gyerek kora</th>
+        </tr>
+    </thead>   
+    <tbody id="tablaTartalom"></tbody>  
+</table>
+  
+<script>   
+    document.getElementById('gyerekForm').addEventListener('submit', function(event) {
+    event.
+ 
+    preventDefault(); // Az űrlap elküldésének megakadályozása
+
+  // Az űrlap adatai:
+  
+    var nev = document.getElementById('nev').value;
+    var kor = document.getElementById('kor').value;
+
+  // Hozzáadjuk az adatokat a táblázathoz:
+  
+    var tablaTartalom = document.getElementById('tablaTartalom');
+    var sor = tablaTartalom.insertRow();
+    var nevCella = sor.insertCell(0);
+    var korCella = sor.insertCell(1);
+        nevCella.innerHTML = nev;
+        korCella.innerHTML = kor;
+
+  // Űrlap mezők kiürítése:
+    document.getElementById('nev').value = '';
+    document.getElementById('kor').value = '';
+});
+</script>
+</body>
+</html>
